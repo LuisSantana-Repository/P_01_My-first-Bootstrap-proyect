@@ -1,0 +1,18 @@
+.carousel-indicators{
+    font-size: 0;
+}
+.carousel-item img{
+    max-height: 40vh;
+    object-fit: cover;
+}
+.card img{
+    height: 200px;
+    object-fit: cover;
+}
+
+
+.cart img{
+    float: right;
+    object-fit: cover;
+}
+
