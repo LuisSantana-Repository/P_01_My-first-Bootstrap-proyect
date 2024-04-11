@@ -18,16 +18,17 @@
         />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
         <link rel="stylesheet" href="stulesheet.css">
+        <script src="navbar.js"></script>
     </head>
 
     <body>
         <header>
             <!-- place navbar here -->
-            <!-- place navbar here -->
+            <script src="navbar.js"></script>
             <nav
                 class="navbar navbar-expand-sm navbar-dark bg-dark"
             >
-                <a href="P01_index.html"><img src="img/steam.png" alt="steam logo" style="max-width: 50px; min-width: 50px;"></a>
+                <a href="index.html"><img src="img/steam.png" alt="steam logo" style="max-width: 50px; min-width: 50px;"></a>
 
                 <button
                     class="navbar-toggler d-lg-none"
@@ -42,12 +43,15 @@
                 <div class="navbar-collapse col-1" id="collapsibleNavId">
                     <ul class="navbar-nav me-auto mt-2 mt-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" href="P01_index.html" aria-current="page"
+                            <a class="nav-link active" href="index.html" aria-current="page"
                                 >Home <span class="visually-hidden">(current)</span></a
                             >
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="P01_about_us.html">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Search.html">search</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a
@@ -60,17 +64,18 @@
                                 >Products</a
                             >
                             <div class="dropdown-menu" aria-labelledby="dropdownId">
-                                <a class="dropdown-item" href="P01_cat_A.html">Multiplayer</a>
-                                <a class="dropdown-item" href="P01_cat_B.html">Accion</a>
+                                <a class="dropdown-item" href="index.html?category=Multiplayer">Multiplayer</a>
+                                <a class="dropdown-item" href="index.html?category=Accion">Accion</a>
                             </div>
                         </li>
 
                         <li>
-                            <form class="d-flex my-lg-0">
+                            <form class="d-flex my-lg-0" onsubmit="search()">
                                 <input
                                     class="form-control me-sm-2"
                                     type="text"
                                     placeholder="Search"
+                                    id="Search"
                                 />
                                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
                                     Search
@@ -84,7 +89,6 @@
                 </div>
                 
             </nav>
-            
         </header>
         <main><h1>About Us</h1></main>
         <footer>
@@ -296,4 +300,184 @@
             crossorigin="anonymous"
         ></script>
     </body>
+
+    <div
+            class="modal fade"
+            id="LogIn"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="modalTitleId"
+            aria-hidden="true"
+        >
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalTitleId">
+                            Log In
+                        </h5>
+                        <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"
+                        ></button>
+                    </div>
+
+
+
+
+
+                    <div class="modal-body">
+                        <form onsubmit="login()" class="position-relative">
+                            <div class="input-group mb-3">
+                                <label for="Name" class="form-label w-100">Email</label>
+                                <input
+                                    type="email"
+                                    class="form-control"
+                                    name="Name"
+                                    id="emailUser"
+                                    aria-describedby="helpId"
+                                    placeholder="Enter your Email" required
+                                />
+                                <span class="input-group-text" id="suffixId"><i class="bi bi-envelope"></i></span>
+                            </div>
+
+                            <div class="input-group mb-3">
+                                <label for="Name" class="form-label w-100">Password</label>
+                                <input
+                                    type="password"
+                                    class="form-control"
+                                    name="Name"
+                                    id=""
+                                    aria-describedby="helpId"
+                                    placeholder="Enter your password" required
+                                />
+                                <span class="input-group-text" id="suffixId"><i class="bi bi-key fill"></i></span>
+                            </div>
+                            <div class="form-check">
+                                <input
+                                    class="form-check-input"
+                                    type="checkbox"
+                                    value="1"
+                                    id=""
+                                    checked
+                                />
+                                <label class="form-check-label" for="1"> Remeber Me </label>
+                            </div>
+                            <div class="text-center">
+                                <button
+                                    type="submit"
+                                    name=""
+                                    id=""
+                                    class="btn btn-primary"
+                                    class="btn-close"
+                                    data-bs-dismiss="modal"
+                                >
+                                    login
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+
+
+
+                    
+                    <div class="modal-footer justify-content-center">
+                        <p>Don't have an account? <a class="text-decoration-none" href="#" data-bs-toggle="modal" data-bs-target="#SignUp"
+                            >Sign up here</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+
+        <!-- Modal Sign Up -->
+        <div
+            class="modal fade"
+            id="SignUp"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="modalTitleId"
+            aria-hidden="true"
+        >
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalTitleId">
+                            Signup
+                        </h5>
+                        <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"
+                        ></button>
+                    </div>
+
+
+                    <form action="">
+                        <div class="modal-body">
+                            <div class="container-fluid row">
+                                <div class="mb-3 col-6">
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        name=""
+                                        id=""
+                                        aria-describedby="helpId"
+                                        placeholder="First Name" required
+                                    />
+                                </div>
+                                <div class="mb-3 col-6">
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        name=""
+                                        id=""
+                                        aria-describedby="helpId"
+                                        placeholder="Last Name" required
+                                    />
+                                </div>
+                                <div class="mb-3">
+                                    <input
+                                        type="email"
+                                        class="form-control"
+                                        name=""
+                                        id=""
+                                        aria-describedby="helpId"
+                                        placeholder="Your Email" required
+                                    />
+                                </div>
+                                <div class="mb-3">
+                                    <input
+                                        type="password"
+                                        class="form-control"
+                                        name=""
+                                        id=""
+                                        aria-describedby="helpId"
+                                        placeholder="Password" required
+                                    />
+                                </div>
+                                <div class="mb-3">
+                                    <input
+                                        type="password"
+                                        class="form-control"
+                                        name=""
+                                        id=""
+                                        aria-describedby="helpId"
+                                        placeholder="Confirm Password" required
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary btn-success">Sign Up</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
 </html>

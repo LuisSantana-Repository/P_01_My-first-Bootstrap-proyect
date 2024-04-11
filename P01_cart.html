@@ -19,16 +19,20 @@
         
         <link rel="stylesheet" href="stulesheet.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+        <script src="P01_cart.js"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <script src="navbar.js"></script>
+
     </head>
 
     <body>
         <header>
             <!-- place navbar here -->
-            <!-- place navbar here -->
+            <script src="navbar.js"></script>
             <nav
                 class="navbar navbar-expand-sm navbar-dark bg-dark"
             >
-                <a href="P01_index.html"><img src="img/steam.png" alt="steam logo" style="max-width: 50px; min-width: 50px;"></a>
+                <a href="index.html"><img src="img/steam.png" alt="steam logo" style="max-width: 50px; min-width: 50px;"></a>
 
                 <button
                     class="navbar-toggler d-lg-none"
@@ -43,12 +47,15 @@
                 <div class="navbar-collapse col-1" id="collapsibleNavId">
                     <ul class="navbar-nav me-auto mt-2 mt-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" href="P01_index.html" aria-current="page"
+                            <a class="nav-link active" href="index.html" aria-current="page"
                                 >Home <span class="visually-hidden">(current)</span></a
                             >
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="P01_about_us.html">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Search.html">search</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a
@@ -61,17 +68,18 @@
                                 >Products</a
                             >
                             <div class="dropdown-menu" aria-labelledby="dropdownId">
-                                <a class="dropdown-item" href="P01_cat_A.html">Multiplayer</a>
-                                <a class="dropdown-item" href="P01_cat_B.html">Accion</a>
+                                <a class="dropdown-item" href="index.html?category=Multiplayer">Multiplayer</a>
+                                <a class="dropdown-item" href="index.html?category=Accion">Accion</a>
                             </div>
                         </li>
 
                         <li>
-                            <form class="d-flex my-lg-0">
+                            <form class="d-flex my-lg-0" onsubmit="search()">
                                 <input
                                     class="form-control me-sm-2"
                                     type="text"
                                     placeholder="Search"
+                                    id="Search"
                                 />
                                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
                                     Search
@@ -88,46 +96,9 @@
             
         </header>
         <main>
-            <div class="row mx-3 my-3">
-                <div class="cart col-sm-12 col-md-6 col-lg-8 ">
-                    <div class="media border p-3 w-100">
-                        <img src="img/deadth cells.jpg" alt="dead cells" class="mr-3 mt-3 rounded-circle" style="max-width: 100px;">
-                        <div class="media-body">
-                            <h4>Dead Cells <a
-                                name=""
-                                id=""
-                                class="btn btn-danger"
-                                href="#"
-                                role="button"
-                                ><i class="bi bi-trash-fill"></i></a
-                            >
-                            </h4>
-
-                            <div class="input-group mb-3 w-50">
-                                <span class="input-group-text" id="prefixId">Quantity:</span>
-                                <input
-                                    type="number"
-                                    name="name"
-                                    id="name"
-                                    class="form-control"
-                                    placeholder="2"
-                                    aria-describedby="prefixId"
-                                />
-                            </div>
-                            <div class="input-group w-50">
-                                <span class="input-group-text" id="prefixId">Price:</span>
-                                <input
-                                    type="number"
-                                    name="name"
-                                    id="name"
-                                    class="form-control"
-                                    placeholder="20.00"
-                                    aria-describedby="suffixId"
-                                />
-                                <span class="input-group-text" id="suffixId">MXN</span>
-                            </div>
-                        </div>
-                    </div>
+            <div class="row mx-3 my-3" id="data">
+                <div class="cart col-sm-12 col-md-6 col-lg-8 " id="items">
+                    
                     <div class="media border p-3">
                         <img src="img/letal.jpeg" alt="lettal company" class="mr-3 mt-3 rounded-circle" style="max-width: 100px;">
                         <div class="media-body">
@@ -137,6 +108,7 @@
                                 class="btn btn-danger"
                                 href="#"
                                 role="button"
+                                onclick=""
                                 ><i class="bi bi-trash-fill"></i></a
                             >
                             </h4>
@@ -170,40 +142,8 @@
                 </div>
 
 
-                <div class="col-sm-12 col-md-6 col-lg-4">
-                    <div class="media border p-3 ms-lg-3 ms-md-3  w-100" >
-                        <div class="media-body">
-                            <h4>Total purchase:</h4>
-                            <p><b>Dead Cells:</b> 2 x 20.00 MX</p>
-                            <p><b>Lethal Company:</b> 5 x 30.00 MX</p>
-                            <p><b>Shipping cost:</b> 60.00 MX</p>
-                            <h5>Total: 250.00 MXN</h5>
-
-                            <div class="d-grid gap-2 px-5">
-                                <a
-                                    name="Pay"
-                                    id=""
-                                    class="btn btn-primary"
-                                    href="P01_orders.html"
-                                    role="button"
-                                    >Pay</a
-                                >
-
-                            </div>
-
-                            <div class="d-grid gap-2 px-5 py-3">
-                                <button
-                                    type="button"
-                                    name="Pay"
-                                    id=""
-                                    class="btn btn-danger"
-                                >
-                                    Cancel
-                                </button>
-                            </div>
-                            
-                        </div>
-                    </div>
+                <div class="col-sm-12 col-md-6 col-lg-4" id="list">
+                    
                 </div>
             </div>
         </main>

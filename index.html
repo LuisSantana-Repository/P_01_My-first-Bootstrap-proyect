@@ -10,6 +10,7 @@
         />
 
         <!-- Bootstrap CSS v5.2.1 -->
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
         <link
             href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
             rel="stylesheet"
@@ -18,7 +19,9 @@
         />
 
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-        <link rel="stylesheet" href="stulesheet.css">
+        <link rel="stylesheet" href="./stulesheet.css">
+        <script src="navbar.js"></script>
+        <script src="index.js"></script>
     </head>
 
     <body>
@@ -27,7 +30,7 @@
             <nav
                 class="navbar navbar-expand-sm navbar-dark bg-dark"
             >
-                <a href="P01_index.html"><img src="img/steam.png" alt="steam logo" style="max-width: 50px; min-width: 50px;"></a>
+                <a href="index.html"><img src="img/steam.png" alt="steam logo" style="max-width: 50px; min-width: 50px;"></a>
 
                 <button
                     class="navbar-toggler d-lg-none"
@@ -42,12 +45,15 @@
                 <div class="navbar-collapse col-1" id="collapsibleNavId">
                     <ul class="navbar-nav me-auto mt-2 mt-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" href="P01_index.html" aria-current="page"
+                            <a class="nav-link active" href="index.html" aria-current="page"
                                 >Home <span class="visually-hidden">(current)</span></a
                             >
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="P01_about_us.html">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Search.html">search</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a
@@ -60,17 +66,18 @@
                                 >Products</a
                             >
                             <div class="dropdown-menu" aria-labelledby="dropdownId">
-                                <a class="dropdown-item" href="P01_cat_A.html">Multiplayer</a>
-                                <a class="dropdown-item" href="P01_cat_B.html">Accion</a>
+                                <a class="dropdown-item" href="index.html?category=Multiplayer">Multiplayer</a>
+                                <a class="dropdown-item" href="index.html?category=Accion">Accion</a>
                             </div>
                         </li>
 
                         <li>
-                            <form class="d-flex my-lg-0">
+                            <form class="d-flex my-lg-0" onsubmit="search()">
                                 <input
                                     class="form-control me-sm-2"
                                     type="text"
                                     placeholder="Search"
+                                    id="Search"
                                 />
                                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
                                     Search
@@ -149,114 +156,22 @@
                     <span class="visually-hidden">Next</span>
                 </button>
             </div>
-            
+            <div id="Subtitle"></div>
 
-
-            <div class="Products row mt-4 mx-2">
+            <div class="Products row mt-4 mx-2" id="productsCart">
                 <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
-                    <div class="card h-100">
-                        <img src="img/pall.jpg" class="card-img-top" alt="pallwold">
-                        <div class="card-body">
-                            <h5 class="card-title">Palworld</h5>
-                            <p class="card-text">"Fight, farm, build and work alongside mysterious creatures called "Pals" in this completely new multiplayer, open world survival and crafting game!"
-                            </p>
-                        </div>
-                    </div>
                 </div>
-
-                <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
-                    <div class="card h-100">
-                        <img src="img/letal.jpeg" class="card-img-top" alt="lethal company">
-                        <div class="card-body">
-                            <h5 class="card-title">lethal company</h5>
-                            <p class="card-text">"A co-op horror about scavenging at abandoned moons to sell scrap to the Company"</p>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
-                    <div class="card h-100">
-                        <img src="img/witcher.jpg" class="card-img-top" alt="witcher 3">
-                        <div class="card-body">
-                            <h5 class="card-title">Witcher 3</h5>
-                            <p class="card-text">"You are Geralt of Rivia, mercenary monster slayer. Before you stands a war-torn, monster-infested continent you can explore at will."</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
-                    <div class="card h-100">
-                        <img src="img/MWIII.jpg" class="card-img-top" alt="witcher 3">
-                        <div class="card-body">
-                            <h5 class="card-title">Call of duty</h5>
-                            <p class="card-text">"Welcome to Call of Duty® HQ, the home of Call of Duty®: Modern Warfare® III, Call of Duty®: Modern Warfare® II and Warzone™"</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
-                    <div class="card h-100">
-                        <img src="img/deadth cells.jpg" class="card-img-top" alt="witcher 3">
-                        <div class="card-body">
-                            <h5 class="card-title">Dead cells</h5>
-                            <p class="card-text">"Dead Cells is a rogue-lite, metroidvania inspired, action-platformer. You'll explore a sprawling, ever-changing castle... assuming you’re able to fight your way past its keepers in 2D souls-lite combat."</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
-                    <div class="card h-100">
-                        <img src="img/Castle.jpg" class="card-img-top" alt="witcher 3">
-                        <div class="card-body">
-                            <h5 class="card-title">Castle Crashers</h5>
-                            <p class="card-text">"Hack, slash, and smash your way to victory in this award winning 2D arcade adventure from The Behemoth!"</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
-                    <div class="card h-100">
-                        <img src="img/stardew.jpg" class="card-img-top" alt="witcher 3">
-                        <div class="card-body">
-                            <h5 class="card-title">Stardew Valley</h5>
-                            <p class="card-text">"You've inherited your grandfather's old farm plot in Stardew Valley. Armed with hand-me-down tools and a few coins, you set out to begin your new life."</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
-                    <div class="card h-100">
-                        <img src="img/furi.png" class="card-img-top" alt="witcher 3">
-                        <div class="card-body">
-                            <h5 class="card-title">Furi</h5>
-                            <p class="card-text">"The jailer is the key, kill him and you’ll be free. Fight your way free in this ultra-responsive, fast-paced sword-fighting and dual-stick shooting game."</p>
-                        </div>
-                    </div>
-                </div>
-
             </div>
-
             <nav aria-label="Page navigation">
                 <ul
-                    class="pagination justify-content-center"
+                    class="pagination justify-content-center" id="pagination"
                 >
-                    <li class="page-item disabled">
-                        <a class="page-link" href="#" aria-label="Previous">
-                            <span aria-hidden="true">&laquo;</span>
-                        </a>
+                    <li id="1" class="page-item" aria-current="page">
+                        <a class="page-link" onclick="pagination(1)">1</a>
                     </li>
-                    <li class="page-item active" aria-current="page">
-                        <a class="page-link" href="#">1</a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">3</a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Next">
-                            <span aria-hidden="true">&raquo;</span>
-                        </a>
+                    <li class="page-item" id="2"><a class="page-link" onclick="pagination(2)">2</a></li>
+                    <li class="page-item" id="3">
+                        <a class="page-link" onclick="pagination(3)">3</a>
                     </li>
                 </ul>
             </nav>
@@ -301,14 +216,14 @@
 
 
                     <div class="modal-body">
-                        <form action="" class="position-relative">
+                        <form onsubmit="login()" class="position-relative">
                             <div class="input-group mb-3">
                                 <label for="Name" class="form-label w-100">Email</label>
                                 <input
                                     type="email"
                                     class="form-control"
                                     name="Name"
-                                    id=""
+                                    id="emailUser"
                                     aria-describedby="helpId"
                                     placeholder="Enter your Email" required
                                 />
@@ -343,6 +258,8 @@
                                     name=""
                                     id=""
                                     class="btn btn-primary"
+                                    class="btn-close"
+                                    data-bs-dismiss="modal"
                                 >
                                     login
                                 </button>
@@ -361,19 +278,6 @@
                 </div>
             </div>
         </div>
-        
-        <script>
-            var modalId = document.getElementById('modalId');
-        
-            modalId.addEventListener('show.bs.modal', function (event) {
-                  // Button that triggered the modal
-                  let button = event.relatedTarget;
-                  // Extract info from data-bs-* attributes
-                  let recipient = button.getAttribute('data-bs-whatever');
-        
-                // Use above variables to manipulate the DOM
-            });
-        </script>
         
 
 

@@ -1,0 +1,65 @@
+@host = https://products-dasw.onrender.com
+@expediente = 744747
+
+###
+POST {{host}}/api/products
+x-expediente: 744747
+x-auth: admin
+Content-Type: application/json
+
+{
+"name": "Furi",
+"description": "The jailer is the key, kill him and you’ll be free. Fight your way free in this ultra-responsive, fast-paced sword-fighting and dual-stick shooting game.",
+"pricePerUnit": 227.00,
+"stock": 22,
+"category": "Accion",
+"imageUrl": "./img/furi.png",
+"unit": "Unit"
+}
+
+###
+GET  {{host}}/api/products
+x-expediente: {{expediente}}
+x-auth: admin
+###
+GET {{host}}/api/products/40Ey9ifLAQncACLomEo77
+x-expediente: {{expediente}}
+
+###
+PUT {{host}}/api/products/660ef27dca7e626df15ae847"
+x-expediente: {{expediente}}
+x-auth: admin
+Content-Type: application/json
+
+{
+"name": "Witcher 3",
+"description": "You are Geralt of Rivia, mercenary monster slayer. Before you stands a war-torn, monster-infested continent you can explore at will.",
+"pricePerUnit": 87.00,
+"stock": 30,
+"category": "Accion",
+"imageUrl": "./img/witcher.jpg",
+"unit": "Unit"
+}
+
+### you must put the user's email in x-user
+
+GET  {{host}}/api/cart
+x-expediente: {{expediente}}
+x-user: user@test.com
+
+### use a valid id in the url
+POST   {{host}}/api/cart/Dty8tB1z-0mTrU9t32JSo
+x-expediente: {{expediente}}
+x-user: user@test.com
+Content-Type: application/json
+
+{
+"amount": 10
+}
+
+###
+
+DELETE   {{host}}/api/cart/40Ey9ifLAQncACLomEo77
+x-expediente: {{expediente}}
+x-user: user@test.com
+

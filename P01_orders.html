@@ -23,10 +23,11 @@
     <body>
         <header>
             <!-- place navbar here -->
+            <script src="navbar.js"></script>
             <nav
                 class="navbar navbar-expand-sm navbar-dark bg-dark"
             >
-                <a href="P01_index.html"><img src="img/steam.png" alt="steam logo" style="max-width: 50px; min-width: 50px;"></a>
+                <a href="index.html"><img src="img/steam.png" alt="steam logo" style="max-width: 50px; min-width: 50px;"></a>
 
                 <button
                     class="navbar-toggler d-lg-none"
@@ -41,12 +42,15 @@
                 <div class="navbar-collapse col-1" id="collapsibleNavId">
                     <ul class="navbar-nav me-auto mt-2 mt-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" href="P01_index.html" aria-current="page"
+                            <a class="nav-link active" href="index.html" aria-current="page"
                                 >Home <span class="visually-hidden">(current)</span></a
                             >
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="P01_about_us.html">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Search.html">search</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a
@@ -59,17 +63,18 @@
                                 >Products</a
                             >
                             <div class="dropdown-menu" aria-labelledby="dropdownId">
-                                <a class="dropdown-item" href="P01_cat_A.html">Multiplayer</a>
-                                <a class="dropdown-item" href="P01_cat_B.html">Accion</a>
+                                <a class="dropdown-item" href="index.html?category=Multiplayer">Multiplayer</a>
+                                <a class="dropdown-item" href="index.html?category=Accion">Accion</a>
                             </div>
                         </li>
 
                         <li>
-                            <form class="d-flex my-lg-0">
+                            <form class="d-flex my-lg-0" onsubmit="search()">
                                 <input
                                     class="form-control me-sm-2"
                                     type="text"
                                     placeholder="Search"
+                                    id="Search"
                                 />
                                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
                                     Search
